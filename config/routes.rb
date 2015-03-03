@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   resources :movies
-  get '/search', to: "movies#submit"
+  root 'movies#index'
+  get '/search', to: "movies#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
