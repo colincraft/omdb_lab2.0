@@ -7,4 +7,8 @@
 <% end %>
 
 <ul id="results">
+<% @search_results.each do |f| %>
+<li><%= f["Title"] %></li>
+<% end %>
 </ul>
+

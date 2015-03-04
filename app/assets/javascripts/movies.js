@@ -10,17 +10,17 @@ $(document).ready(function () {
     // Prevent the page from reloading.
     event.preventDefault();
 
-    var query = this.q.value;
+    var query = event.target.q.value;
 
     // Call the OMDB API. {s: query} passes the query term as the "s"
     // parameter to the API. The third argument is a function that is
     // called when the request is successful.
-    $.getJSON("http://localhost:3000", {s:query}, function (data) {
+    $.getJSON("http://localhost:3000/movies", {s:query}, function (data) {
       var $results = $("#results").empty();
       if (data.Error) {
         $results.html("No results found.");
       } else {
-        data.Search.forEach(function (movie) {
+        data.forEach(function (movie) {
           var li = $("<li></li>").text(movie.Title);
           $results.append(li);
         });
